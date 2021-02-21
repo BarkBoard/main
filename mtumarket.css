@@ -1,0 +1,77 @@
+.header {
+	font-size: 42px;
+	text-decoration: underline;
+	color: #e6e600;
+	text-align: center;
+}
+
+.menubtn {
+	border: none;
+	border-radius: 8px;
+	color: gray;
+	padding: 10px 24px;
+	font-size: 14px;
+	cursor: pointer;
+	background-color: yellow;
+	transition-duration: .3s;
+}
+
+
+.menubtn:hover, .menubtn:focus {
+	background-color: white;
+	color: black;
+}
+
+
+.menu {
+	position: absolute;
+	top: 4px;
+	right: 36px;
+}
+
+
+.loginbtn {
+	border: none;
+	border-radius: 8px;
+	color: gray;
+	padding: 10px 24px;
+	font-size: 14px;
+	cursor: pointer;
+	background-color:yellow;
+	transition-duration: .3s;
+}
+
+.login {
+	position: absolute;
+	top: 4px;
+	left: 36px;
+}
+
+.loginbtn:hover, .loginbtn:focus {
+	background-color: white;
+	color: black;
+}
+
+.dropdown-content {
+	display: none;
+	position: absolute;
+	right:36px;
+	background-color: yellow;
+	min-width: 84px;
+	overflow: auto;
+}
+
+.dropdown-content a {
+	color: gray;
+	font-size: 10px;
+	padding: 12px 14px;
+	display: block;
+}
+
+.dropdown-content a:hover {
+	background-color: white;
+}
+
+.show {
+	display: block;
+}
