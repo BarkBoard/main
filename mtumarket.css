@@ -26,7 +26,7 @@
 .menu {
 	position: absolute;
 	top: 4px;
-	right: 36px;
+	left: 36px;
 }
 
 
@@ -44,7 +44,7 @@
 .login {
 	position: absolute;
 	top: 4px;
-	left: 36px;
+	right: 36px;
 }
 
 .loginbtn:hover, .loginbtn:focus {
@@ -55,7 +55,7 @@
 .dropdown-content {
 	display: none;
 	position: absolute;
-	right:36px;
+	left:36px;
 	background-color: yellow;
 	min-width: 84px;
 	overflow: auto;
