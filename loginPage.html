@@ -21,21 +21,21 @@
 			<a href="#">Link 4</a>
 			<a href="#">Link 5</a>
 		</div>
-		
+
 		<!-- login button -->
 		<div class="login">
 			<button class="loginbtn" onclick="location.href='mtumarket.html'">
 			<a href="mtumarket.html">Home</a>
 			</button>
 		</div>
-		
+
+
 	</div>
 <hr size=6>
 
 
 
-
-<script>	
+<script>
 <!-- menu button script -->
 function menuFunc() {
 	document.getElementById("myDropdown").classList.toggle("show");
@@ -54,6 +54,30 @@ window.onclick = function(event) {
 	}
 }
 </script>
-	
+
+<p class="ex1">
+</p>
+<center>
+<div class="container">
+    <label for="uname"><b style="color:#e6e600;">Username </b></label>
+    <input type="text" placeholder="Enter Username" name="uname" required>
+		<br>
+    <label for="psw"><b style="color:#e6e600;">Password </b></label>
+    <input type="password" placeholder="Enter Password" name="psw" required>
+		<br>
+    <button type="submit">Login</button>
+		<br>
+    <label>
+      <input type="checkbox" checked="checked" name="remember"><b style="color:#e6e600;"> Remember me </b>
+    </label>
+  </div>
+
+<!-- Possible forgot password button-->
+  <div class="container" style="background-color:#f1f1f1">
+    <span class="psw">Forgot <a href="#">password?</a></span>
+  </div>
+
+
+</center>
 </body>
 </html>
