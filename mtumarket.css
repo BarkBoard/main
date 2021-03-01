@@ -84,7 +84,7 @@ input[type=text], input[type=password] {
   box-sizing: border-box;
 }
 
-button {
+.button {
   background-color: #4CAF50;
   color: white;
   padding: 14px 10px;
@@ -94,7 +94,7 @@ button {
   width: 10%;
 }
 
-button:hover {
+.button:hover {
   opacity: 0.8;
 }
 
