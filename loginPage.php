@@ -24,7 +24,7 @@
 
 		<!-- login button -->
 		<div class="login">
-			<button class="loginbtn" onclick="location.href='mtumarket.html'">
+			<button class="loginbtn" onclick="location.href='mtumarket.php'">
 			Home
 			</button>
 		</div>
