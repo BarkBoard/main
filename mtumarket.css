@@ -87,3 +87,20 @@
 	font-size: 15px;
 	padding: 0px;
 }
+
+.customDiv {
+	margin: 10px;
+	background-color: yellow;
+	color: gray;
+	text-align: center;
+	font-size: large;
+}
+
+.customDiv2 {
+	margin: 10px;
+	background-color: yellow;
+	color: gray;
+	text-align: center;
+	font-size: large;
+	min-height: 600px;
+}

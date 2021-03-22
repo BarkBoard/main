@@ -4,6 +4,7 @@
 	<title>
 		MTU Marketplace
 	</title>
+	<link href="bootstrap.css" rel="stylesheet">
 	<link href="mtumarket.css" rel="stylesheet">
 </head>
 <body style="background-color:gray">
@@ -21,19 +22,70 @@
 			<a href="#">Link 4</a>
 			<a href="#">Link 5</a>
 		</div>
-
+		
 		<!-- login button -->
 		<div class="login">
 			<button class="loginbtn" onclick="location.href='loginPage.php'">
 			Login
 			</button>
 		</div>
-
+		
 	</div>
 <hr size=6>
 
+<div class="container">
+	<div class="row">
+		<div class="col-lg-2">
+			<div class="customDiv">
+				Books
+			</div>
+		</div>
+		<div class="col-lg-2">
+			<div class="customDiv">
+				Vehicles
+			</div>
+		</div>
+		<div class="col-lg-2">
+			<div class="customDiv">
+				Electronics
+			</div>
+		</div>
+		<div class="col-lg-2">
+			<div class="customDiv">
+				Clothes
+			</div>
+		</div>
+		<div class="col-lg-2">
+			<div class="customDiv">
+				Housing
+			</div>
+		</div>
+		<div class="col-lg-2">
+			<div class="customDiv">
+			Misc
+			</div>
+		</div>
+	</div>
+</div>
 
-<script>
+<hr size=6>
+
+<div class="container">
+	<div class="row">
+		<div class="col-lg-6">
+			<div class="customDiv2">
+				Popular Posts
+			</div>
+		</div>
+		<div class="col-lg-6">
+			<div class="customDiv2">
+				Recent Posts
+			</div>
+		</div>
+	</div>
+</div>
+
+<script>	
 <!-- menu button script -->
 function menuFunc() {
 	document.getElementById("myDropdown").classList.toggle("show");
@@ -52,10 +104,6 @@ window.onclick = function(event) {
 	}
 }
 </script>
-
-<div class="main-title">
-	<h2>Categories</h2>
-</div
-
+	
 </body>
 </html>
