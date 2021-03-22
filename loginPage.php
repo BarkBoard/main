@@ -33,7 +33,36 @@
 	</div>
 <hr size=6>
 
+<!-- login username and password field -->
+<link href="loginPage.css" rel="stylesheet">
+<p class="ex1">
+</p>
+<center>
+<div class="container">
+    <label for="uname"><b style="color:#e6e600;">Username: </b></label>
 
+    <input type="text" placeholder="Enter Username" name="uname" required>
+		<br>
+
+    <label for="psw"><b style="color:#e6e600;">Password: </b></label>
+    <input type="password" placeholder="Enter Password" name="psw" required>
+		<br>
+		<center>
+    <div class="button" onclick="location.href='mtumarket.php'">Login</div>
+		<br>
+
+    <label>
+      <input type="checkbox" checked="checked" name="remember"><b style="color:#e6e600;"> Remember me </b>
+    </label>
+	</center>
+  </div>
+
+<!-- Possible forgot password button-->
+  <div class="container2" style="background-color:#f1f1f1">
+    <span class="psw">Forgot <a href="#">password?</a></span>
+  </div>
+
+</center>
 
 <script>
 <!-- menu button script -->
@@ -55,30 +84,6 @@ window.onclick = function(event) {
 }
 </script>
 
-<link href="loginPage.css" rel="stylesheet">
-<p class="ex1">
-</p>
-<center>
-<div class="container">
-    <label for="uname"><b style="color:#e6e600;">Username </b></label>
-    <input type="text" placeholder="Enter Username" name="uname" required>
-		<br>
-    <label for="psw"><b style="color:#e6e600;">Password </b></label>
-    <input type="password" placeholder="Enter Password" name="psw" required>
-		<br>
-    <div class="button">Login</div>
-		<br>
-    <label>
-      <input type="checkbox" checked="checked" name="remember"><b style="color:#e6e600;"> Remember me </b>
-    </label>
-  </div>
 
-<!-- Possible forgot password button-->
-  <div class="container" style="background-color:#f1f1f1">
-    <span class="psw">Forgot <a href="#">password?</a></span>
-  </div>
-
-
-</center>
 </body>
 </html>
