@@ -76,19 +76,9 @@
 	display: block;
 }
 
-.main-title {
-	font-size: 20px;
-	color: #e6e600;
-	text-align: center;
-	padding: 20px;
-}
-
-.category-titles{
-	font-size: 15px;
-	padding: 0px;
-}
-
 .customDiv {
+	border: none;
+	padding: 10px 30px;
 	margin: 10px;
 	background-color: yellow;
 	color: gray;

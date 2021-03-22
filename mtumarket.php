@@ -22,48 +22,48 @@
 			<a href="#">Link 4</a>
 			<a href="#">Link 5</a>
 		</div>
-		
+
 		<!-- login button -->
 		<div class="login">
 			<button class="loginbtn" onclick="location.href='loginPage.php'">
 			Login
 			</button>
 		</div>
-		
+
 	</div>
 <hr size=6>
 
 <div class="container">
 	<div class="row">
 		<div class="col-lg-2">
-			<div class="customDiv">
+			<button class="customDiv" onclick="location.href='itemList.php'">
 				Books
-			</div>
+			</button>
 		</div>
 		<div class="col-lg-2">
-			<div class="customDiv">
+			<button class="customDiv" onclick="location.href='itemList.php'">
 				Vehicles
-			</div>
+			</button>
 		</div>
 		<div class="col-lg-2">
-			<div class="customDiv">
+			<button class="customDiv" onclick="location.href='itemList.php'">
 				Electronics
-			</div>
+			</button>
 		</div>
 		<div class="col-lg-2">
-			<div class="customDiv">
+			<button class="customDiv" onclick="location.href='itemList.php'">
 				Clothes
-			</div>
+			</button>
 		</div>
 		<div class="col-lg-2">
-			<div class="customDiv">
+			<button class="customDiv" onclick="location.href='itemList.php'">
 				Housing
-			</div>
+			</button>
 		</div>
 		<div class="col-lg-2">
-			<div class="customDiv">
+			<button class="customDiv" onclick="location.href='itemList.php'">
 			Misc
-			</div>
+		</button>
 		</div>
 	</div>
 </div>
@@ -85,7 +85,7 @@
 	</div>
 </div>
 
-<script>	
+<script>
 <!-- menu button script -->
 function menuFunc() {
 	document.getElementById("myDropdown").classList.toggle("show");
@@ -104,6 +104,6 @@ window.onclick = function(event) {
 	}
 }
 </script>
-	
+
 </body>
 </html>
