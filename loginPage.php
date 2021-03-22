@@ -55,6 +55,7 @@ window.onclick = function(event) {
 }
 </script>
 
+<link href="loginPage.css" rel="stylesheet">
 <p class="ex1">
 </p>
 <center>
