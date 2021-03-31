@@ -16,12 +16,21 @@
 			Menu
 			</div>
 		<div class="dropdown-content" id="myDropdown">
+			<a>
+				<div class="input-group mt-2 mx-2">
+					<div class="form-outline">
+						<input type="search" id="myInput" class="form-control-dropdown" />
+						<label class="form-label" for="form1">Search</label>
+					</div>
+				</div>
+			</a>
 			<a href="#">Link 1</a>
 			<a href="#">Link 2</a>
 			<a href="#">Link 3</a>
 			<a href="#">Link 4</a>
 			<a href="#">Link 5</a>
 		</div>
+
 
 		<!-- login button -->
 		<div class="login">
