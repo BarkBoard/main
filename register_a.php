@@ -21,7 +21,7 @@ else
     $passen = md5($pass);
 
     //having trouble getting phoen number in
-    $query="INSERT INTO user(first_name, last_name, email, password) VALUES ('$first_name', '$last_name', '$email', 'md5($pass)')";
+    $query="INSERT INTO user(first_name, last_name, email, password) VALUES ('$first_name', '$last_name', '$email', '$passen')";
     $sql=mysqli_query($conn,$query)or die("Could Not Perform the Query");
 
     echo "Account creation successful";
