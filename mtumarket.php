@@ -45,6 +45,7 @@
 			<a href="itemlist.php">Electronics</a>
 			<a href="itemlist.php">Clothes</a>
 			<a href="itemlist.php">Housing</a>
+			<a href="itemlist.php">Miscellaneous</a>
 		</div>
 
 

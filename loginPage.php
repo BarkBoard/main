@@ -13,20 +13,26 @@
 		<div class="menu">
 		<button onclick="menuFunc()" class="menubtn">
 			Menu
-			</div>
-		<div class="dropdown-content" id="myDropdown">
-			<a href="#">Link 1</a>
-			<a href="#">Link 2</a>
-			<a href="#">Link 3</a>
-			<a href="#">Link 4</a>
-			<a href="#">Link 5</a>
 		</div>
-
-		<!-- login button -->
-		<div class="login">
-			<button class="loginbtn" onclick="location.href='mtumarket.php'">
-			Home
-			</button>
+		<div class="dropdown-content" id="myDropdown">
+			<a style="font-size:14px">
+				<div class="input-group mt-2 mx-2">
+					<div class="form-outline">
+						<input type="search" id="myInput" class="form-control-dropdown" onkeyup="FilterFunction()" />
+						<label class="form-label" for="form1"></label>
+						</div>
+					<button type="button" class="btn btn-primary" style="background-color:gray">
+    				<i class="fas fa-search">Search</i>
+  				</button>
+				</div>
+			</a>
+			<li><hr class="dropdown-divider" /></li>
+			<a href="itemlist.php">Books</a>
+			<a href="itemlist.php">Vehicles</a>
+			<a href="itemlist.php">Electronics</a>
+			<a href="itemlist.php">Clothes</a>
+			<a href="itemlist.php">Housing</a>
+			<a href="itemlist.php">Miscellaneous</a>
 		</div>
 
 
@@ -38,24 +44,27 @@
 <p class="ex1">
 </p>
 <center>
-<div class="container">
-    <label for="uname"><b style="color:#e6e600;">Username: </b></label>
-
-    <input type="text" placeholder="Enter Username" name="uname" required>
-		<br>
-
-    <label for="psw"><b style="color:#e6e600;">Password: </b></label>
-    <input type="password" placeholder="Enter Password" name="psw" required>
-		<br>
-		<center>
-    <div class="button" onclick="location.href='mtumarket.php'">Login</div>
-		<br>
+<div class="signup-form">
+	<form action="loginProcess.php" method="post" enctype="multipart/form-data">
+		<h2>Login</h2>
+		<p class="hint-text">Enter Login Details</p>
+        <div class="form-group">
+        	<input type="email" class="form-control" name="email" placeholder="Email" required="required">
+        </div>
+		<div class="form-group">
+            <input type="password" class="form-control" name="pass" placeholder="Password" required="required">
+        </div>
+		<div class="form-group">
+            <button type="submit" name="save" class="btn btn-success btn-lg btn-block">Login</button>
+        </div>
+        <div class="text-center">Don't have an account? <a href="register.php">Register Here</a></div>
+    </form>
 
     <label>
       <input type="checkbox" checked="checked" name="remember"><b style="color:#e6e600;"> Remember me </b>
     </label>
 	</center>
-  </div>
+</div>
 
 <!-- Possible forgot password button-->
   <div class="container2" style="background-color:#f1f1f1">
