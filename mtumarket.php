@@ -1,3 +1,14 @@
+<?php
+	//connecting to database
+   $conn = mysqli_connect('localhost', 'pi', 'teame2021', 'project');
+
+   //check connection
+   if(!$conn){
+      echo 'Connection error: ' . mysqli_connect_error();
+   }
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,6 +18,7 @@
 	<link href="bootstrap.css" rel="stylesheet">
 	<link href="mtumarket.css" rel="stylesheet">
 </head>
+
 <body style="background-color:gray">
 	<div class="header">
 		MTU Marketplace
