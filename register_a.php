@@ -3,7 +3,7 @@
 
 extract($_POST);
 if ($pass !== $cpass){
-    
+    //fix this
     echo "Passwords Must Match";
     header("Location: register.php");
 }
@@ -12,6 +12,7 @@ include("serverconnect.php");
 $sql=mysqli_query($conn,"SELECT * FROM user where email='$email'");
 if(mysqli_num_rows($sql)>0)
 {
+    //fix this
     echo "Email Id Already Exists";
     header("Location: loginPage.php");
 	exit;
@@ -26,6 +27,7 @@ else
 
     echo "Account creation successful";
 
+    //fix this
     header ("Location: loginPage.php?status=success");
     header ("Location: mtumarket.php");
     exit;
