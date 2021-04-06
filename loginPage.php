@@ -5,6 +5,7 @@
 		MTU Marketplace
 	</title>
 	<link href="mtumarket.css" rel="stylesheet">
+	<link href="bootstrap.css" rel="stylesheet">
 </head>
 <body style="background-color:gray">
 	<div class="header">
@@ -67,7 +68,8 @@
 </div>
 
 <!-- Possible forgot password button-->
-  <div class="container2" style="background-color:#f1f1f1">
+<center>
+  <div class="signup-form2" style="background-color:#f1f1f1">
     <span class="psw">Forgot <a href="#">password?</a></span>
   </div>
 
@@ -79,17 +81,20 @@ function menuFunc() {
 	document.getElementById("myDropdown").classList.toggle("show");
 }
 
-window.onclick = function(event) {
-	if(!event.target.matches('.menubtn')) {
-		var dropdowns = document.getElementsByClassName("dropdown-content");
-		var i;
-		for (i = 0; i < dropdowns.length; i++) {
-			var openDropdown = dropdowns[i];
-			if(openDropdown.classList.contains('show')){
-				openDropdown.classList.remove('show');
-			}
-		}
-	}
+function filterFunction() {
+  var input, filter, ul, li, a, i;
+  input = document.getElementById("myInput");
+  filter = input.value.toUpperCase();
+  div = document.getElementById("myDropdown");
+  a = div.getElementsByClassName("dropdown-content");
+  for (i = 0; i < a.length; i++) {
+    txtValue = a[i].textContent || a[i].innerText;
+    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+      a[i].style.display = "";
+    } else {
+      a[i].style.display = "none";
+    }
+  }
 }
 </script>
 

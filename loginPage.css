@@ -22,7 +22,7 @@ input[type=text], input[type=password] {
   opacity: 0.8;
 }
 
-.container {
+.signup-form {
   width: 30%;
   padding: 16px;
   border: 1px solid #ccc;
