@@ -2,6 +2,9 @@
 function menuFunc() {
 	document.getElementById("myDropdown").classList.toggle("show");
 }
+function profileFunc() {
+	document.getElementById("profileDropdown").classList.toggle("show");
+}
 
 function filterFunction() {
   var input, filter, ul, li, a, i;

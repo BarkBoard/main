@@ -61,6 +61,15 @@
 	overflow: auto;
 }
 
+.dropdown-content-profile {
+	display: none;
+	position: absolute;
+	right:36px;
+	background-color: yellow;
+	min-width: 84px;
+	overflow: auto;
+}
+
 .dropdown-content a {
 	color: gray;
 	font-size: 14px;

@@ -87,3 +87,14 @@ else
 }
 
 ?>
+
+
+
+
+
+		<!-- login button -->
+		<div class="login">
+			<button class="loginbtn" onclick="location.href='loginPage.php'">
+			Login
+			</button>
+		</div>

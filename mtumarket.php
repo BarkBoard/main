@@ -7,6 +7,8 @@
       echo 'Connection error: ' . mysqli_connect_error();
    }
 
+   session_start();
+
 ?>
 
 <!DOCTYPE html>
@@ -41,6 +43,7 @@
 				</div>
 			</a>
 			<li><hr class="dropdown-divider" /></li>
+			<a href="item.php">Post New Item</a>
 			<a href="itemlist.php">Books</a>
 			<a href="itemlist.php">Vehicles</a>
 			<a href="itemlist.php">Electronics</a>
@@ -50,11 +53,15 @@
 		</div>
 
 
-		<!-- login button -->
+   		<!-- login dropdown button and menu (needs fixing) -->
 		<div class="login">
-			<button class="loginbtn" onclick="location.href='loginPage.php'">
-			Login
-			</button>
+		<button onclick="profileFunc()" class="menubtn">
+   			Profile
+			<div class="dropdown-content-profile" id="profileDropdown">
+			<li><hr class="dropdown-divider" /></li>
+			<a href="loginPage.php">Log In</a>
+			<a href="register.php">Register</a>
+			</div>
 		</div>
 
 	</div>

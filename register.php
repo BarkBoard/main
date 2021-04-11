@@ -16,11 +16,12 @@
 			Menu
 			</div>
 		<div class="dropdown-content" id="myDropdown">
-			<a href="#">Link 1</a>
-			<a href="#">Link 2</a>
-			<a href="#">Link 3</a>
-			<a href="#">Link 4</a>
-			<a href="#">Link 5</a>
+			<a href="itemlist.php">Books</a>
+			<a href="itemlist.php">Vehicles</a>
+			<a href="itemlist.php">Electronics</a>
+			<a href="itemlist.php">Clothes</a>
+			<a href="itemlist.php">Housing</a>
+			<a href="itemlist.php">Miscellaneous</a>
 		</div>
 
 		<!-- login button -->

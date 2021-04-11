@@ -13,12 +13,18 @@ if(is_array($row))
     $_SESSION["Email"]=$row['email'];
     $_SESSION["First_Name"]=$row['first_name'];
     $_SESSION["Last_Name"]=$row['last_name']; 
+    $_SESSION["loggedin"] = true;
+
+
     header("Location: mtumarket.php");
     
 }
 else
 {
     echo "Invalid Email ID/Password";
+    echo "<br>Forwarding you to login page in 5 seconds";
+    sleep(50);
+    header("Location: loginPage.php");
 }
 
 ?>

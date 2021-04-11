@@ -37,6 +37,13 @@
 			<a href="itemlist.php">Miscellaneous</a>
 		</div>
 
+		<!-- login button -->
+		<div class="login">
+			<button class="loginbtn" onclick="location.href='mtumarket.php'">
+			Home
+			</button>
+		</div>
+
 
 	</div>
 <hr size=6>
