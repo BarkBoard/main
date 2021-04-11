@@ -1,6 +1,5 @@
 <?php
 
-
 extract($_POST);
 if ($pass !== $cpass){
     //fix this

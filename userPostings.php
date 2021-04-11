@@ -68,57 +68,21 @@
 
 <div class="container">
 	<div class="row">
-		<div class="col-lg-2">
-			<button class="customDiv" onclick="location.href='itemList.php'">
-				Books
-			</button>
-		</div>
-		<div class="col-lg-2">
-			<button class="customDiv" onclick="location.href='itemList.php'">
-				Vehicles
-			</button>
-		</div>
-		<div class="col-lg-2">
-			<button class="customDiv" onclick="location.href='itemList.php'">
-				Electronics
-			</button>
-		</div>
-		<div class="col-lg-2">
-			<button class="customDiv" onclick="location.href='itemList.php'">
-				Clothes
-			</button>
-		</div>
-		<div class="col-lg-2">
-			<button class="customDiv" onclick="location.href='itemList.php'">
-				Housing
-			</button>
-		</div>
-		<div class="col-lg-2">
-			<button class="customDiv" onclick="location.href='itemList.php'">
-			Misc
-		</button>
-		</div>
-	</div>
-</div>
-
-<hr size=6>
-
-<div class="container">
-	<div class="row">
 		<div class="col-lg-6">
 			<div class="customDiv2">
-				Popular Posts
-				<hr size=1>
+				My Posts
+				<hr size=5>
 				<?php 
-			
-			$sql = "SELECT title, price, category FROM item LIMIT 3";
+			$userid = 1008;
+
+			$sql = "SELECT title, price, category, views FROM item where user_id = $userid group by category order by item_id desc limit 10";
 			$result = $conn->query($sql);
 			
 			if($result->num_rows>0) {
-				echo "<table><tr><th>Title</th><th>Price</th><th>Category</th></tr>";
+				echo "<table><tr><th>Title</th><th>Price</th><th>Category</th><th>Views</th></tr>";
 				
 				while($row = $result->fetch_assoc()) {
-					echo "<tr><td>".$row["title"]."</td><td>".$row["price"]."</td><td>".$row["category"]."</td></tr>";
+					echo "<tr><td>".$row["title"]."</td><td>".$row["price"]."</td><td>".$row["category"]."</td><td>".$row["views"]."</td></tr>";
 				}
 				echo "</table";
 			} else {
@@ -129,11 +93,35 @@
 		</div>
 		<div class="col-lg-6">
 			<div class="customDiv2">
-				Recent Posts
+				My Account
+                <hr size=5>
+				<?php 
+			$userid = 1008;
+
+			$sql = "SELECT first_name, last_name, email, phone FROM user where user_id = $userid";
+			$result = $conn->query($sql);
+            $first_name = $result -> fetch_assoc()['first_name'];
+            $last_name = $result -> fetch_assoc()['last_name'];
+            $email = $result -> fetch_assoc()['email'];
+            $phone = $result -> fetch_assoc()['phone'];
+			
+            echo $first_name;
+            echo " ";
+            echo $last_name;
+            echo "<br>";
+            echo "Email: ";
+            echo $email;
+            echo "<br>";
+            echo "Phone: ";
+            echo $phone;
+
+			?>
 			</div>
 		</div>
 	</div>
 </div>
+
+
 
 
 </body>
