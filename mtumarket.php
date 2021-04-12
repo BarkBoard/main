@@ -103,15 +103,15 @@
 
 <hr size=6>
 
-<div class="container">
+<div class="container-sm">
 	<div class="row">
-		<div class="col-lg-6">
+		<div class="col">
 			<div class="customDiv2">
 				Popular Posts
 				<hr size=1>
 				<?php 
 			
-			$sql = "SELECT title, price, category FROM item LIMIT 3";
+			$sql = "SELECT title, price, category FROM item ORDER BY views DESC LIMIT 5";
 			$result = $conn->query($sql);
 			
 			if($result->num_rows>0) {
@@ -127,9 +127,26 @@
 			?>
 			</div>
 		</div>
-		<div class="col-lg-6">
+		<div class="col">
 			<div class="customDiv2">
 				Recent Posts
+				<hr size = 1>
+				<?php 
+			
+			$sql = "SELECT title, price, category FROM item ORDER BY item_id DESC LIMIT 5";
+			$result = $conn->query($sql);
+			
+			if($result->num_rows>0) {
+				echo "<table><tr><th>Title</th><th>Price</th><th>Category</th></tr>";
+				
+				while($row = $result->fetch_assoc()) {
+					echo "<tr><td>".$row["title"]."</td><td>".$row["price"]."</td><td>".$row["category"]."</td></tr>";
+				}
+				echo "</table";
+			} else {
+				echo "0 results";
+			}
+			?>
 			</div>
 		</div>
 	</div>

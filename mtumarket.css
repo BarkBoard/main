@@ -97,9 +97,9 @@
 
 .customDiv2 {
 	margin: 10px;
+	align: center;
 	background-color: yellow;
 	color: gray;
 	text-align: center;
-	font-size: large;
-	min-height: 600px;
+	min-height: 300px;
 }
