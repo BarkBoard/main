@@ -1,8 +1,8 @@
 <?php
-// if (!$_SESSION["loggedin"]){
-//     header("LOCATION: loginPage.php");
-//     return;
-// }
+session_start();
+if (!isset($_SESSION['user'])){
+    header("Location: loginPage.php");
+}
 ?>
 
 <!DOCTYPE html>

@@ -1,8 +1,8 @@
 <?php
-// if (!$_SESSION["loggedin"]){
-//     header("LOCATION: loginPage.php");
-//     return;
-// }
+session_start();
+if (!isset($_SESSION['user'])){
+    header("Location: loginPage.php");
+}
 ?>
 
 <!DOCTYPE html>
@@ -35,9 +35,9 @@
 <center>
 <div class="signup-form">
     <form action="itemProcess_a.php" method="POST" enctype="multipart/form-data">
-        <h2>New School Supplies Listing</h2>
+        <h2>New Miscellaneous Listing</h2>
         <input type = "hidden" name = "category" value = "Misc">
-        <p class="hint-text">Enter School Supplies Details</p>
+        <p class="hint-text">Enter Item Details</p>
         <div class="form-group">
             <div class = "row">
                 <div class="col"><input type="text" class="form-control" name="title" placeholder="Title" required="required"></div>

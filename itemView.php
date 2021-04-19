@@ -1,6 +1,7 @@
 <?php
-include("serverconnect.php");
-session_start(); //session works	
+    //item view
+	include("serverconnect.php");
+   	session_start();
 ?>
 
 <!DOCTYPE html>
@@ -20,7 +21,7 @@ session_start(); //session works
 		<!-- menu dropdown button and menu -->
 		<div class="menu">
 		<button onclick="menuFunc()" class="menubtn">
-			Post A New Item Listing
+			Menu
 		</div>
 		<div class="dropdown-content" id="myDropdown">
 			<a style="font-size:14px">
@@ -47,27 +48,11 @@ session_start(); //session works
    		<!-- login dropdown button and menu (needs fixing) -->
 		<div class="login">
 		<button onclick="profileFunc()" class="menubtn">
-			<!-- displaying name if logged in -->
-   			<?php 
-			   if (isset($_SESSION['user'])){
-					echo($_SESSION['first_name']);
-					echo " "; 
-					echo($_SESSION['last_name']);
-			   }else {
-				   echo "Profile";
-			   }
-			?>
+   			Profile
 			<div class="dropdown-content-profile" id="profileDropdown">
 			<li><hr class="dropdown-divider" /></li>
-			<?php
-				if (!isset($_SESSION['user'])){
-					echo '<a href="loginPage.php">Log In</a><br>';
-					echo '<a href="register.php">Register</a>';
-			   }else {
-				   echo '<a href="changePass.php">Change Password</a><br>';
-				   echo '<a href="stop_session.php">Log Out</a>';
-			   }
-			?>
+			<a href="loginPage.php">Log In</a>
+			<a href="register.php">Register</a>
 			</div>
 		</div>
 
@@ -78,39 +63,39 @@ session_start(); //session works
 	<div class="row">
 		<div class="col-lg-2">
 			<button class="customDiv" onclick="location.href='itemList.php'">
-				Vehicles
-				<input type = "hidden" name = "category" value = "Vehicles">
-			</button>
-		</div>
-		<div class="col-lg-2">
-			<button class="customDiv" onclick="location.href='itemList.php'">
-				Housing
-				<input type = "hidden" name = "category" value = "Housing">
-			</button>
-		</div>
-		<div class="col-lg-2">
-			<button class="customDiv" onclick="location.href='itemList.php'">
 				Books
-				<input type = "hidden" name = "category" value = "School Supplies">
+                <?php$category = "School Supplies"?>
 			</button>
 		</div>
 		<div class="col-lg-2">
 			<button class="customDiv" onclick="location.href='itemList.php'">
-				Clothes
-				<input type = "hidden" name = "category" value = "Clothing">
+				Vehicles
+                <?php$category = "Vehicles"?>
 			</button>
 		</div>
 		<div class="col-lg-2">
 			<button class="customDiv" onclick="location.href='itemList.php'">
 				Electronics
-				<input type = "hidden" name = "category" value = "Electronics">
+                <?php$category = "Electronics"?>
 			</button>
 		</div>
 		<div class="col-lg-2">
 			<button class="customDiv" onclick="location.href='itemList.php'">
-			Misc
-			<input type = "hidden" name = "category" value = "Misc">
+				Clothes
+                <?php$category = "Clothing"?>
 			</button>
+		</div>
+		<div class="col-lg-2">
+			<button class="customDiv" onclick="location.href='itemList.php'">
+				Housing
+                <?php$category = "Housing"?>
+			</button>
+		</div>
+		<div class="col-lg-2">
+			<button class="customDiv" onclick="location.href='itemList.php'">
+			    Misc
+                <?php$category = "Misc"?>
+		    </button>
 		</div>
 	</div>
 </div>
@@ -121,40 +106,18 @@ session_start(); //session works
 	<div class="row">
 		<div class="col">
 			<div class="customDiv2">
-				Popular Posts
+				Current Posts
 				<hr size=1>
-				<?php 
+				<?php
 			
-			$sql = "SELECT title, price, category FROM item ORDER BY views DESC LIMIT 10";
+			$sql = "SELECT title, price, description, condition FROM item where item_id = 12346 ORDER BY item_id DESC";
 			$result = $conn->query($sql);
 			
 			if($result->num_rows>0) {
-				echo "<table><tr><th>Title</th><th>Price</th><th>Category</th></tr>";
+				echo "<table><tr><th>Title</th><th>Price</th><th>Condition</th></tr>";
 				
 				while($row = $result->fetch_assoc()) {
-					echo "<tr><td>".$row["title"]."</td><td>".$row["price"]."</td><td>".$row["category"]."</td></tr>";
-				}
-				echo "</table";
-			} else {
-				echo "0 results";
-			}
-			?>
-			</div>
-		</div>
-		<div class="col">
-			<div class="customDiv2">
-				Recent Posts
-				<hr size = 1>
-				<?php 
-			
-			$sql = "SELECT title, price, category FROM item ORDER BY item_id DESC LIMIT 10";
-			$result = $conn->query($sql);
-			
-			if($result->num_rows>0) {
-				echo "<table><tr><th>Title</th><th>Price</th><th>Category</th></tr>";
-				
-				while($row = $result->fetch_assoc()) {
-					echo "<tr><td>".$row["title"]."</td><td>".$row["price"]."</td><td>".$row["category"]."</td></tr>";
+					echo "<tr><td>".$row["title"]."</td><td>".$row["price"]."</td><td>".$row["condition"]."</td></tr>";
 				}
 				echo "</table";
 			} else {
