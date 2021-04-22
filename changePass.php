@@ -23,7 +23,7 @@ if (!isset($_SESSION['user'])){
 		<!-- menu dropdown button and menu -->
 		<div class="menu">
 		<button onclick="menuFunc()" class="menubtn">
-			Menu
+			Post A New Item Listing
 		</div>
 		<div class="dropdown-content" id="myDropdown">
 			<a style="font-size:14px">
@@ -50,11 +50,27 @@ if (!isset($_SESSION['user'])){
    		<!-- login dropdown button and menu (needs fixing) -->
 		<div class="login">
 		<button onclick="profileFunc()" class="menubtn">
-   			Profile
+			<!-- displaying name if logged in -->
+   			<?php 
+			   if (isset($_SESSION['user'])){
+					echo($_SESSION['first_name']);
+					echo " "; 
+					echo($_SESSION['last_name']);
+			   }else {
+				   echo "Profile";
+			   }
+			?>
 			<div class="dropdown-content-profile" id="profileDropdown">
 			<li><hr class="dropdown-divider" /></li>
-			<a href="loginPage.php">Log In</a>
-			<a href="register.php">Register</a>
+			<?php
+				if (!isset($_SESSION['user'])){
+					echo '<a href="loginPage.php">Log In</a><br>';
+					echo '<a href="register.php">Register</a>';
+			   }else {
+				   echo '<a href="stop_session.php">Log Out</a><br>';
+				   echo '<a href="userPostings.php">My Profile</a>';
+			   }
+			?>
 			</div>
 		</div>
 
@@ -68,7 +84,6 @@ if (!isset($_SESSION['user'])){
 <div class="signup-form">
     <form action="changePass_a.php" method="POST" enctype="multipart/form-data">
         <h2>Change Password</h2>
-        <p class="hint-text">Change Password for (enter name here)</p>
 		<div class="form-group">
             <input type="password" class="form-control" name="origPass" placeholder="Current Password" required="required">
         </div>

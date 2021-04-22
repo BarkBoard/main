@@ -1,9 +1,9 @@
 <?php
-	include("serverconnect.php");
-   session_start();
-
-
-
+//goes to login page if not signed in
+session_start();
+if (!isset($_SESSION['user'])){
+    header("Location: loginPage.php");
+}
 ?>
 
 <!DOCTYPE html>
@@ -67,9 +67,9 @@
 					echo '<a href="loginPage.php">Log In</a><br>';
 					echo '<a href="register.php">Register</a>';
 			   }else {
-					echo '<a href="mtumarket.php">Home</a><br>';
 				   echo '<a href="changePass.php">Change Password</a><br>';
-				   echo '<a href="stop_session.php">Log Out</a>';
+				   echo '<a href="stop_session.php">Log Out</a><br>';
+				   echo '<a href="userPostings.php">My Profile</a>';
 			   }
 			?>
 			</div>
@@ -78,53 +78,47 @@
 	</div>
 <hr size=6>
 
-<div class="container">
-	<div class="row">
-		<div class="col-lg-6">
-			<div class="customDiv2">
-				My Posts
-				<hr size=5>
-				<?php 
-				$userid = $_SESSION['user'];
-
-				$sql = "SELECT item_id, title, price, category, views FROM item where user_id = $userid group by category order by item_id";
-				$result = $conn->query($sql);
-				
-				if($result->num_rows>0) {
-					echo "<table><tr><th>Title</th><th>Price</th><th>Category</th><th>Views</th></tr>";
-					
-					while($row = $result->fetch_assoc()) {
-						echo "<tr><td>".$row["title"]."</td><td>". "$" .$row["price"]."</td><td>".$row["category"]."</td><td>".$row["views"]."</td></tr>";
-					}
-
-					echo "</table";
-				} else {
-					echo "0 results";
-				}
-				?>
+<link href = "loginPage.css" rel="stylesheet">
+<p class = "ex1">
+</p>
+<center>
+<div class="signup-form">
+    <form action="changeUser_a.php" method="POST" enctype="multipart/form-data">
+        <h2>Change Profile Information</h2>
+        <p class="hint-text">Change only the information you want to change</p>
+        <div class="form-group">
+			<div class="row">
+				<div class="col"><input type="text" class="form-control" name="first_name" placeholder="First Name"></div>
+				<div class="col"><input type="text" class="form-control" name="last_name" placeholder="Last Name"></div>
+			</div>        	
+        </div>
+        <div class="form-group">
+			<div class="row">
+				<div class="col"><input type="text" class="form-control" name="email" placeholder="Email Address" div>
+				<div class="col"><input type="tel" class="form-control" name="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="Phone Number (###-###-####)"></div>
 			</div>
 		</div>
-		<div class="col-lg-6">
-			<div class="customDiv2">
-				My Account
-                <hr size=5>
-				<?php
+		<?php echo "<br>" ?>
+        <p class="hint-text">If you'd like to change your username, you must fill in the next three queries</p>
+        <div class="form-group">
+            <input type="password" class="form-control" name="origPass" placeholder="Current Password">
+        </div>
+		<div class="form-group">
+            <input type="password" class="form-control" name="newPass" placeholder="New Password">
+        </div>
+		<div class="form-group">
+            <input type="password" class="form-control" name="newPass1" placeholder="Confirm New Password">
+        </div>
 
-				echo 'Name: ' . "\t" . $_SESSION['first_name'] . " " . $_SESSION['last_name']. '<br>';
-				echo 'Email: ' . "\t" . $_SESSION['email'] . '<br>';
-				echo 'Phone Number: ' . "\t" . $_SESSION['phone'] . '<br>';
-				echo 'User ID: ' . "\t" . $_SESSION['user'] . '<br>';
-				echo '<a href="changeUser.php">Change User Settings</a><br>';
-				echo '<a href="stop_session.php">Log Out</a><br>';
-				
+        <div class="form-group">
+            <button type="submit" name="save" class="btn btn-success btn-lg btn-block">Save</button>
+        </div>
+    </form>
 
-			?>
-			</div>
-		</div>
-	</div>
+    <center>
+
+
 </div>
-
-
 
 
 </body>

@@ -65,7 +65,8 @@ session_start(); //session works
 					echo '<a href="register.php">Register</a>';
 			   }else {
 				   echo '<a href="changePass.php">Change Password</a><br>';
-				   echo '<a href="stop_session.php">Log Out</a>';
+				   echo '<a href="stop_session.php">Log Out</a><br>';
+				   echo '<a href="userPostings.php">My Profile</a>';
 			   }
 			?>
 			</div>

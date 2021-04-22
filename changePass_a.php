@@ -20,16 +20,16 @@ $query= "SELECT password FROM user where user_id = $user_id and password='$passe
 $sql = mysqli_query($conn, $query) or die("Could not Perform the First Query");
 if (mysqli_num_rows($sql) == 0){
     echo "Original Password Doesn't Match Our Records!<br>";
-    echo "Redirecting in (5) seconds";
-    header('Refresh: 5; changePass.php');
+    echo "Redirecting in (3) seconds";
+    header('Refresh: 3; changePass.php');
     exit();
 }
 
 //checking if new password inputs match
 if (strcmp($newPass,$newPass1) !== 0){
     echo "New Passwords Don't Match!<br>";
-    echo "Redirecting in (5) seconds";
-    header('Refresh: 5; changePass.php');
+    echo "Redirecting in (3) seconds";
+    header('Refresh: 3; changePass.php');
     exit();
 }
 

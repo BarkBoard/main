@@ -50,6 +50,7 @@ if (isset($_SESSION['user'])){
 				<div class="col"><input type="text" class="form-control" name="email" placeholder="Email Address" required="required"></div>
 				<div class="col"><input type="tel" class="form-control" name="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="Phone Number (###-###-####)" required="required"></div>
 			</div>
+		</div>
 		<div class="form-group">
             <input type="password" class="form-control" name="pass" placeholder="Password" required="required">
         </div>
@@ -57,7 +58,7 @@ if (isset($_SESSION['user'])){
             <input type="password" class="form-control" name="cpass" placeholder="Confirm Password" required="required">
         </div>
 		<div class="form-group">
-            <button type="submit" name="save" class="btn btn-success btn-lg btn-block">Register Now</button>
+            <button type="submit" name="save" class="btn btn-success btn-lg btn-block">Register</button>
         </div>
         <div class="text-center">Already have an account? <a href="loginPage.php">Sign in</a></div>
     </form>

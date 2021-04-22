@@ -15,6 +15,7 @@ if(is_array($row))
     $_SESSION['email']=$row['email'];
     $_SESSION['first_name']=$row['first_name'];
     $_SESSION['last_name']=$row['last_name'];
+    $_SESSION['phone']=$row['phone'];
 
     echo "<br>Login Successful!<br>";
     header('Refresh: 1; mtumarket.php');

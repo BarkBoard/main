@@ -55,6 +55,7 @@ $result = $conn ->query($query);
 
 $item_id = $result -> fetch_assoc()['item_id'];
 
+
 //inserting data in respectable tables
 
 if (strcmp($category,'Vehicles') == 0){

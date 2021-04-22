@@ -60,7 +60,6 @@ if (!isset($_SESSION['user'])){
             <input type="text" class="form-control" name="description" placeholder="Description" required="required">
         </div>
         
-
         <div class="form-group">
             <button type="submit" name="save" class="btn btn-success btn-lg btn-block">Next</button>
         </div>

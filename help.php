@@ -98,3 +98,30 @@ else
 			Login
 			</button>
 		</div>
+
+
+
+
+
+<!--image upload-->
+<div class="form-group">
+    <input type="file" name="pic2" placeholder="Submit a photo here!" required="required">
+    <input type="submit" name="pic2Submit" class="btn btn-success btn-lg btn-block">Next</button>
+</div>
+<div class="form-group">
+    <input type="file" name="pic2" placeholder="Submit a photo here!" required="required">
+    <input type="submit" name="pic2Submit" class="btn btn-success btn-lg btn-block">Next</button>
+</div>
+
+<!--editing images userPostings.php-->\
+while($row = $result->fetch_assoc()) {
+    echo '<form method = "post" action= "editPosting_a.php">';
+    echo '<tr>';
+    echo "<td>".$row["title"]."</td><td>". "$" .$row["price"]."</td><td>".$row["category"]."</td>".$row["views"]."</td>";
+    echo '<td><input type = "submit" name = "edit" value = "Edit"></td>';
+    echo '</tr>';
+    echo '<input type = "hidden" name = "item_id" value ="' .$row['item_id']. '">';
+    echo '<input type = "hidden" name = "category" value ="' .$row['category']. '">';
+    echo '</form>';
+
+}
