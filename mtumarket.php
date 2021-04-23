@@ -61,7 +61,6 @@ session_start(); //session works
 			<li><hr class="dropdown-divider" /></li>
 			<?php
 				if (!isset($_SESSION['user'])){
-					echo '<a href="mtumarket.php">Home</a>';
 					echo '<a href="loginPage.php">Log In</a><br>';
 					echo '<a href="register.php">Register</a>';
 			   }else {
@@ -81,39 +80,33 @@ session_start(); //session works
 		<form action="posting.php" method="POST">
 			<div class ="row">
 				<div class="col-lg-2">
-					<button class="customDiv" id = "Vehicles" onclick="location.href='posting.php'" value = "Vehicles">
-						Vehicles
-						<input type = "hidden" name = "category" value = "Vehicles">
-					</button>
-				</div>
-				<div class="col-lg-2">
-					<button class="customDiv" id = "Vehicles" onclick="location.href='posting.php'">
-						Housing
-						<input type = "hidden" name = "category" value = "Housing">
-					</button>
-				</div>
-				<div class="col-lg-2">
-					<button class="customDiv" id = "Vehicles" onclick="location.href='posting.php'">
-						Books
-						<input type = "hidden" name = "category" value = "School Supplies">
+					<button class="customDiv" type = "submit" name = "category" value = "Vehicles" onclick="location.href='posting.php'">
+						<input type = "Submit" name = "category" value="Vehicles">
 					</button>
 				</div>
 				<div class="col-lg-2">
 					<button class="customDiv" onclick="location.href='posting.php'">
-						Clothes
-						<input type = "hidden" name = "category" value = "Clothing">
+						<input type = "Submit" name = "category" value="Housing">
 					</button>
 				</div>
 				<div class="col-lg-2">
 					<button class="customDiv" onclick="location.href='posting.php'">
-						Electronics
-						<input type = "hidden" name = "category" value = "Electronics">
+						<input type = "Submit" name = "category" value="School Supplies">
 					</button>
 				</div>
 				<div class="col-lg-2">
 					<button class="customDiv" onclick="location.href='posting.php'">
-						Misc
-					<input type = "hidden" name = "category" value = "Misc">
+						<input type = "Submit" name = "category" value="Clothing">
+					</button>
+				</div>
+				<div class="col-lg-2">
+					<button class="customDiv" onclick="location.href='posting.php'">
+						<input type = "Submit" name = "category" value="Electronics">
+					</button>
+				</div>
+				<div class="col-lg-2">
+					<button class="customDiv" onclick="location.href='posting.php'">
+						<input type = "Submit" name = "category" value="Misc">
 					</button>
 				</div>
 			</div>

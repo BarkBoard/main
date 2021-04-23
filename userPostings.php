@@ -1,6 +1,6 @@
 <?php
-	include("serverconnect.php");
-   session_start();
+include("serverconnect.php");
+session_start();
 ?>
 
 <!DOCTYPE html>
@@ -61,6 +61,7 @@
 			<li><hr class="dropdown-divider" /></li>
 			<?php
 				if (!isset($_SESSION['user'])){
+					echo '<a href="mtumarket.php">Home</a><br>';
 					echo '<a href="loginPage.php">Log In</a><br>';
 					echo '<a href="register.php">Register</a>';
 			   }else {

@@ -21,27 +21,27 @@ if (strcmp($category,'Vehicles') == 0){
     //works
 
 }elseif (strcmp($category,'Housing') == 0){
-    $sql = "delete from vehicle where item_id = $item_id";
+    $sql = "delete from housing where item_id = $item_id";
     $result = $conn->query($sql) or die ("could not perform the second query"); 
     //works
 
 }elseif (strcmp($category,'Clothing') == 0){
-    $sql = "delete from vehicle where item_id = $item_id";
+    $sql = "delete from clothing where item_id = $item_id";
     $result = $conn->query($sql) or die ("could not perform the second query"); 
     //works
 
 }elseif (strcmp($category,'School Supplies') == 0){
-    $sql = "delete from vehicle where item_id = $item_id";
+    $sql = "delete from school_sup where item_id = $item_id";
     $result = $conn->query($sql) or die ("could not perform the second query"); 
     //works
 
 }elseif (strcmp($category,'Electronics') == 0){
-    $sql = "delete from vehicle where item_id = $item_id";
+    $sql = "delete from electronics where item_id = $item_id";
     $result = $conn->query($sql) or die ("could not perform the second query"); 
     //works
 
 }elseif (strcmp($category,'Misc') == 0){
-    $sql = "delete from vehicle where item_id = $item_id";
+    $sql = "delete from misc where item_id = $item_id";
     $result = $conn->query($sql) or die ("could not perform the second query"); 
     //works
 

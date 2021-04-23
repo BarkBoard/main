@@ -48,37 +48,55 @@ $category = $_POST["category"];
 		</div>
 
 
-   		<!-- login dropdown button and menu (needs fixing) -->
 		<div class="login">
-		<button onclick="profileFunc()" class="menubtn">
-			<!-- displaying name if logged in -->
-   			<?php 
-			   if (isset($_SESSION['user'])){
-					echo($_SESSION['first_name']);
-					echo " "; 
-					echo($_SESSION['last_name']);
-			   }else {
-				   echo "Profile";
-			   }
-			?>
-			<div class="dropdown-content-profile" id="profileDropdown">
-			<li><hr class="dropdown-divider" /></li>
-			<?php
-				if (!isset($_SESSION['user'])){
-					echo '<a href="loginPage.php">Log In</a><br>';
-					echo '<a href="register.php">Register</a>';
-			   }else {
-				   echo '<a href="changePass.php">Change Password</a><br>';
-				   echo '<a href="stop_session.php">Log Out</a><br>';
-				   echo '<a href="userPostings.php">My Profile</a>';
-			   }
-			?>
-			</div>
+			<button class="loginbtn" onclick="location.href='mtumarket.php'">
+			Home
+			</button>
 		</div>
 
 	</div>
 <hr size=6>
 
+<div class="container">
+	<div class="row">
+		<form action="posting.php" method="POST">
+			<div class ="row">
+				<div class="col-lg-2">
+					<button class="customDiv" type = "submit" name = "category" value = "Vehicles" onclick="location.href='posting.php'">
+						<input type = "Submit" name = "category" value="Vehicles">
+					</button>
+				</div>
+				<div class="col-lg-2">
+					<button class="customDiv" onclick="location.href='posting.php'">
+						<input type = "Submit" name = "category" value="Housing">
+					</button>
+				</div>
+				<div class="col-lg-2">
+					<button class="customDiv" onclick="location.href='posting.php'">
+						<input type = "Submit" name = "category" value="School Supplies">
+					</button>
+				</div>
+				<div class="col-lg-2">
+					<button class="customDiv" onclick="location.href='posting.php'">
+						<input type = "Submit" name = "category" value="Clothing">
+					</button>
+				</div>
+				<div class="col-lg-2">
+					<button class="customDiv" onclick="location.href='posting.php'">
+						<input type = "Submit" name = "category" value="Electronics">
+					</button>
+				</div>
+				<div class="col-lg-2">
+					<button class="customDiv" onclick="location.href='posting.php'">
+						<input type = "Submit" name = "category" value="Misc">
+					</button>
+				</div>
+			</div>
+		</form>
+	</div>
+</div>
+
+<hr size=6>
 
 <div class="container-sm">
 	<div class="row">
@@ -129,6 +147,7 @@ $category = $_POST["category"];
 						} else {
 							echo "0 results";
 						}
+						exit;
 					case 'Housing':
 						$sql = "select title, description, price, cond, address, rooms, baths, start_date, end_date, phone
 							from housing left outer join item using (item_id)
@@ -168,6 +187,7 @@ $category = $_POST["category"];
 						} else {
 							echo "0 results";
 						}
+						exit;
 					case 'Clothing':
 						$sql = "select title, description, price, cond, classification, gender, size, phone
 							from clothing left outer join item using (item_id)
@@ -201,6 +221,7 @@ $category = $_POST["category"];
 						} else {
 							echo "0 results";
 						}
+						exit;
 					case 'School Supplies':
 						$sql = "select title, description, price, cond, classification, quantity, phone
 								from school_sup left outer join item using (item_id)
@@ -233,6 +254,7 @@ $category = $_POST["category"];
 						} else {
 							echo "0 results";
 						}
+						exit;
 					case 'Electronics':
 						$sql = "select title, description, price, cond, manufacturer, classification, quantity, phone
 							from electronics left outer join item using (item_id)
@@ -268,6 +290,7 @@ $category = $_POST["category"];
 						} else {
 							echo "0 results";
 						}
+						exit;
 					case 'Misc':
 						$sql = "select title, description, price, cond, quantity, phone from misc left outer join item using (item_id) left outer join user on (item.user_id = user.user_id)
 								where category = 'Misc' order by views desc";
@@ -295,7 +318,8 @@ $category = $_POST["category"];
 							echo "</table";
 						} else {
 							echo "0 results";
-						}                 
+						}            
+						exit;     
 				}
 				?>
 				<center>
