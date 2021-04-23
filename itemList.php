@@ -1,3 +1,10 @@
+<?php
+extract($_POST);
+include("serverconnect.php");
+
+$category = $_POST('category');
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -49,5 +56,33 @@
 	<hr size=6>
 
 </body>
+
+<div class="container-sm">
+	<div class="row">
+		<div class="col">
+			<div class="customDiv2">
+				Posts
+				<hr size=1>
+				<?php 
+			
+				switch ($category){
+					case 'Vehicles':
+
+					case 'Housing':
+						
+					case 'Clothing':
+						
+					case 'School Supplies':
+						
+					case 'Electronics':
+						
+					case 'Misc':
+						                  
+				}
+				?>
+			</div>
+		</div>
+	</div>
+</div>
 
 </html>
