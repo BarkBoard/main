@@ -1,10 +1,84 @@
-
 <?php
 extract($_POST);
 include("serverconnect.php");
 
-$category = $_POST('category');
+// var_dump($_POST);
+$category = $_POST["category"];
+
 ?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>
+		MTU Marketplace
+	</title>
+	<link href="bootstrap.css" rel="stylesheet">
+	<link href="mtumarket.css" rel="stylesheet">
+	<script src="mtumarket.js"></script>
+</head>
+
+<body style="background-color:gray">
+	<div class="header">
+		MTU Marketplace
+		<!-- menu dropdown button and menu -->
+		<div class="menu">
+		<button onclick="menuFunc()" class="menubtn">
+			Post A New Item Listing
+		</div>
+		<div class="dropdown-content" id="myDropdown">
+			<a style="font-size:14px">
+				<div class="input-group mt-2 mx-2">
+					<div class="form-outline">
+						<input type="search" id="myInput" class="form-control-dropdown" onkeyup="FilterFunction()" />
+						<label class="form-label" for="form1"></label>
+						</div>
+					<button type="button" class="btn btn-primary" style="background-color:gray">
+    				<i class="fas fa-search">Search</i>
+  				</button>
+				</div>
+			</a>
+			<li><hr class="dropdown-divider" /></li>
+			<a href="itemVehicle.php">Vehicles</a>
+			<a href="itemHousing.php">Housing</a>
+			<a href="itemClothing.php">Clothes</a>
+			<a href="itemSchool.php">Books</a>
+			<a href="itemElectronics.php">Electronics</a>
+			<a href="itemMisc.php">Miscellaneous</a>
+		</div>
+
+
+   		<!-- login dropdown button and menu (needs fixing) -->
+		<div class="login">
+		<button onclick="profileFunc()" class="menubtn">
+			<!-- displaying name if logged in -->
+   			<?php 
+			   if (isset($_SESSION['user'])){
+					echo($_SESSION['first_name']);
+					echo " "; 
+					echo($_SESSION['last_name']);
+			   }else {
+				   echo "Profile";
+			   }
+			?>
+			<div class="dropdown-content-profile" id="profileDropdown">
+			<li><hr class="dropdown-divider" /></li>
+			<?php
+				if (!isset($_SESSION['user'])){
+					echo '<a href="loginPage.php">Log In</a><br>';
+					echo '<a href="register.php">Register</a>';
+			   }else {
+				   echo '<a href="changePass.php">Change Password</a><br>';
+				   echo '<a href="stop_session.php">Log Out</a><br>';
+				   echo '<a href="userPostings.php">My Profile</a>';
+			   }
+			?>
+			</div>
+		</div>
+
+	</div>
+<hr size=6>
+
 
 <div class="container-sm">
 	<div class="row">
@@ -12,15 +86,16 @@ $category = $_POST('category');
 			<div class="customDiv2">
 				Posts
 				<hr size=1>
-				<?php 
+			   	<center>
+				<?php
 			
 				switch ($category){
 					case 'Vehicles':
 						$sql = "select title, description, price, cond, year, make, model, mileage, phone
-from vehicle left outer join item using (item_id)
-	left outer join user on (item.user_id = user.user_id)
-where category = 'Vehicles'
-order by views desc";
+							from vehicle left outer join item using (item_id)
+								left outer join user on (item.user_id = user.user_id)
+							where category = 'Vehicles'
+							order by views desc";
 
 						$result = $conn->query($sql);
 						
@@ -40,7 +115,7 @@ order by views desc";
 								echo "<tr>
 							<td>".$row["title"]."</td>
 							<td>".$row["description"]."</td>
-							<td>".$row["price"]."</td>
+							<td>"."$".$row["price"]."</td>
 							<td>".$row["cond"]."</td>
 							<td>".$row["year"]."</td>
 							<td>".$row["make"]."</td>
@@ -56,10 +131,12 @@ order by views desc";
 						}
 					case 'Housing':
 						$sql = "select title, description, price, cond, address, rooms, baths, start_date, end_date, phone
-from housing left outer join item using (item_id)
-	left outer join user on (item.user_id = user.user_id)
-where category = 'Housing'
-order by views desc";$result = $conn->query($sql);
+							from housing left outer join item using (item_id)
+								left outer join user on (item.user_id = user.user_id)
+							where category = 'Housing'
+							order by views desc";
+						$result = $conn->query($sql);
+
 						if($result->num_rows>0) {
 							echo "<table><tr>
 								<th>Title</th>
@@ -77,7 +154,7 @@ order by views desc";$result = $conn->query($sql);
 								echo "<tr>
 								<td>".$row["title"]."</td>
 								<td>".$row["description"]."</td>
-								<td>".$row["price"]."</td>
+								<td>"."$".$row["price"]."</td>
 								<td>".$row["cond"]."</td>
 								<td>".$row["address"]."</td>
 								<td>".$row["rooms"]."</td>
@@ -93,11 +170,10 @@ order by views desc";$result = $conn->query($sql);
 						}
 					case 'Clothing':
 						$sql = "select title, description, price, cond, classification, gender, size, phone
-from clothing left outer join item using (item_id)
-	left outer join user on (item.user_id = user.user_id)
-where category = 'Clothing'
-order by views desc";$result = $conn->query($sql);
-						$result = $conn->query($sql);
+							from clothing left outer join item using (item_id)
+								left outer join user on (item.user_id = user.user_id)
+							where category = 'Clothing'
+							order by views desc";
 						
 						if($result->num_rows>0) {
 							echo "<table><tr>
@@ -114,7 +190,7 @@ order by views desc";$result = $conn->query($sql);
 								echo "<tr>
 								<td>".$row["title"]."</td>
 								<td>".$row["description"]."</td>
-								<td>".$row["price"]."</td>
+								<td>"."$".$row["price"]."</td>
 								<td>".$row["cond"]."</td>
 								<td>".$row["classification"]."</td>
 								<td>".$row["gender"]."</td>
@@ -127,10 +203,10 @@ order by views desc";$result = $conn->query($sql);
 						}
 					case 'School Supplies':
 						$sql = "select title, description, price, cond, classification, quantity, phone
-from school_sup left outer join item using (item_id)
-	left outer join user on (item.user_id = user.user_id)
-where category = 'School Supplies'
-order by views desc";$result = $conn->query($sql);
+								from school_sup left outer join item using (item_id)
+									left outer join user on (item.user_id = user.user_id)
+								where category = 'School Supplies'
+								order by views desc";
 						$result = $conn->query($sql);
 						
 						if($result->num_rows>0) {
@@ -147,7 +223,7 @@ order by views desc";$result = $conn->query($sql);
 								echo "<tr>
 								<td>".$row["title"]."</td>
 								<td>".$row["description"]."</td>
-								<td>".$row["price"]."</td>
+								<td>"."$".$row["price"]."</td>
 								<td>".$row["cond"]."</td>
 								<td>".$row["classification"]."</td>
 								<td>".$row["quantity"]."</td>
@@ -159,10 +235,10 @@ order by views desc";$result = $conn->query($sql);
 						}
 					case 'Electronics':
 						$sql = "select title, description, price, cond, manufacturer, classification, quantity, phone
-from electronics left outer join item using (item_id)
-	left outer join user on (item.user_id = user.user_id)
-where category = 'Electronics'
-order by views desc";$result = $conn->query($sql);
+							from electronics left outer join item using (item_id)
+								left outer join user on (item.user_id = user.user_id)
+							where category = 'Electronics'
+							order by views desc";
 						$result = $conn->query($sql);
 						
 						if($result->num_rows>0) {
@@ -181,7 +257,7 @@ order by views desc";$result = $conn->query($sql);
 								echo "<tr>
 								<td>".$row["title"]."</td>
 								<td>".$row["description"]."</td>
-								<td>".$row["price"]."</td>
+								<td>"."$".$row["price"]."</td>
 								<td>".$row["cond"]."</td>
 								<td>".$row["manufacturer"]."</td>
 								<td>".$row["classification"]."</td>
@@ -194,7 +270,7 @@ order by views desc";$result = $conn->query($sql);
 						}
 					case 'Misc':
 						$sql = "select title, description, price, cond, quantity, phone from misc left outer join item using (item_id) left outer join user on (item.user_id = user.user_id)
-where category = 'Misc' order by views desc";$result = $conn->query($sql);
+								where category = 'Misc' order by views desc";
 						$result = $conn->query($sql);
 						
 						if($result->num_rows>0) {
@@ -210,7 +286,7 @@ where category = 'Misc' order by views desc";$result = $conn->query($sql);
 								echo "<tr>
 								<td>".$row["title"]."</td>
 								<td>".$row["description"]."</td>
-								<td>".$row["price"]."</td>
+								<td>"."$".$row["price"]."</td>
 								<td>".$row["cond"]."</td>
 								<td>".$row["quantity"]."</td>
 								<td>".$row["phone"]."</td>
@@ -222,6 +298,11 @@ where category = 'Misc' order by views desc";$result = $conn->query($sql);
 						}                 
 				}
 				?>
+				<center>
 			</div>
 		</div>
 	</div>
+</div>
+
+	</body>
+</html>

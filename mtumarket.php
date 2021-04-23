@@ -61,6 +61,7 @@ session_start(); //session works
 			<li><hr class="dropdown-divider" /></li>
 			<?php
 				if (!isset($_SESSION['user'])){
+					echo '<a href="mtumarket.php">Home</a>';
 					echo '<a href="loginPage.php">Log In</a><br>';
 					echo '<a href="register.php">Register</a>';
 			   }else {
@@ -77,42 +78,46 @@ session_start(); //session works
 
 <div class="container">
 	<div class="row">
-		<div class="col-lg-2">
-			<button class="customDiv" onclick="location.href='itemList.php'">
-				Vehicles
-				<input type = "hidden" name = "category" value = "Vehicles">
-			</button>
-		</div>
-		<div class="col-lg-2">
-			<button class="customDiv" onclick="location.href='itemList.php'">
-				Housing
-				<input type = "hidden" name = "category" value = "Housing">
-			</button>
-		</div>
-		<div class="col-lg-2">
-			<button class="customDiv" onclick="location.href='itemList.php'">
-				Books
-				<input type = "hidden" name = "category" value = "School Supplies">
-			</button>
-		</div>
-		<div class="col-lg-2">
-			<button class="customDiv" onclick="location.href='itemList.php'">
-				Clothes
-				<input type = "hidden" name = "category" value = "Clothing">
-			</button>
-		</div>
-		<div class="col-lg-2">
-			<button class="customDiv" onclick="location.href='itemList.php'">
-				Electronics
-				<input type = "hidden" name = "category" value = "Electronics">
-			</button>
-		</div>
-		<div class="col-lg-2">
-			<button class="customDiv" onclick="location.href='itemList.php'">
-			Misc
-			<input type = "hidden" name = "category" value = "Misc">
-			</button>
-		</div>
+		<form action="posting.php" method="POST">
+			<div class ="row">
+				<div class="col-lg-2">
+					<button class="customDiv" onclick="location.href='posting.php'">
+						Vehicles
+						<input type = "hidden" name = "category" value = "Vehicles">
+					</button>
+				</div>
+				<div class="col-lg-2">
+					<button class="customDiv" onclick="location.href='posting.php'">
+						Housing
+						<input type = "hidden" name = "category" value = "Housing">
+					</button>
+				</div>
+				<div class="col-lg-2">
+					<button class="customDiv" onclick="location.href='posting.php'">
+						Books
+						<input type = "hidden" name = "category" value = "School Supplies">
+					</button>
+				</div>
+				<div class="col-lg-2">
+					<button class="customDiv" onclick="location.href='posting.php'">
+						Clothes
+						<input type = "hidden" name = "category" value = "Clothing">
+					</button>
+				</div>
+				<div class="col-lg-2">
+					<button class="customDiv" onclick="location.href='posting.php'">
+						Electronics
+						<input type = "hidden" name = "category" value = "Electronics">
+					</button>
+				</div>
+				<div class="col-lg-2">
+					<button class="customDiv" onclick="location.href='posting.php'">
+					Misc
+					<input type = "hidden" name = "category" value = "Misc">
+					</button>
+				</div>
+			</div>
+		</form>
 	</div>
 </div>
 
@@ -122,46 +127,25 @@ session_start(); //session works
 	<div class="row">
 		<div class="col">
 			<div class="customDiv2">
-				Popular Posts
-				<hr size=1>
-				<?php 
-			
-			$sql = "SELECT title, price, category FROM item ORDER BY views DESC LIMIT 10";
-			$result = $conn->query($sql);
-			
-			if($result->num_rows>0) {
-				echo "<table><tr><th>Title</th><th>Price</th><th>Category</th></tr>";
-				
-				while($row = $result->fetch_assoc()) {
-					echo "<tr><td>".$row["title"]."</td><td>".$row["price"]."</td><td>".$row["category"]."</td></tr>";
-				}
-				echo "</table";
-			} else {
-				echo "0 results";
-			}
-			?>
-			</div>
-		</div>
-		<div class="col">
-			<div class="customDiv2">
 				Recent Posts
 				<hr size = 1>
-				<?php 
-			
-			$sql = "SELECT title, price, category FROM item ORDER BY item_id DESC LIMIT 10";
-			$result = $conn->query($sql);
-			
-			if($result->num_rows>0) {
-				echo "<table><tr><th>Title</th><th>Price</th><th>Category</th></tr>";
-				
-				while($row = $result->fetch_assoc()) {
-					echo "<tr><td>".$row["title"]."</td><td>".$row["price"]."</td><td>".$row["category"]."</td></tr>";
-				}
-				echo "</table";
-			} else {
-				echo "0 results";
-			}
-			?>
+				<center>
+				<?php
+					$sql = "SELECT title, price, category FROM item ORDER BY item_id DESC LIMIT 10";
+					$result = $conn->query($sql);
+					
+					if($result->num_rows>0) {
+						echo "<table><tr><th>Title</th><th>Price</th><th>Category</th></tr>";
+						
+						while($row = $result->fetch_assoc()) {
+							echo "<tr><td>".$row["title"]."</td><td>".$row["price"]."</td><td>".$row["category"]."</td></tr>";
+						}
+						echo "</table";
+					} else {
+						echo "0 results";
+					}
+					?>
+				</center>
 			</div>
 		</div>
 	</div>
