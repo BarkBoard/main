@@ -1,9 +1,6 @@
 <?php
 	include("serverconnect.php");
    session_start();
-
-
-
 ?>
 
 <!DOCTYPE html>
@@ -84,17 +81,27 @@
 			<div class="customDiv2">
 				My Posts
 				<hr size=5>
+				<center>
 				<?php 
 				$userid = $_SESSION['user'];
 
-				$sql = "SELECT item_id, title, price, category, views FROM item where user_id = $userid group by category order by item_id";
+				$sql = "SELECT item_id, title, price, category, cond FROM item where user_id = $userid group by category order by item_id";
 				$result = $conn->query($sql);
 				
 				if($result->num_rows>0) {
-					echo "<table><tr><th>Title</th><th>Price</th><th>Category</th><th>Views</th></tr>";
+					echo "<table><tr><th>Item ID<th>Title</th><th>Price</th><th>Category</th><th>Condition</th></tr>";
 					
 					while($row = $result->fetch_assoc()) {
-						echo "<tr><td>".$row["title"]."</td><td>". "$" .$row["price"]."</td><td>".$row["category"]."</td><td>".$row["views"]."</td></tr>";
+						echo '<form action="deletePost_a.php" method="POST">';
+						echo "<tr><td>".$row["item_id"]."</td><td>".$row["title"]."</td><td>". "$" .$row["price"]."</td><td>".$row["category"]."</td><td>".$row["cond"]."</td>";
+						$category = $row["category"];
+						$item_id = $row["item_id"];
+						echo '<td><input type = "submit" name = "edit" value = "Delete"></td>';
+						echo '<input type = "hidden" name = "category" value = '. $category. '>';
+						echo '<input type = "hidden" name = "item_id" value = '. $item_id. '>';
+    					echo "</tr>";
+						
+						echo "</form>";
 					}
 
 					echo "</table";
@@ -102,6 +109,7 @@
 					echo "0 results";
 				}
 				?>
+				<center>
 			</div>
 		</div>
 		<div class="col-lg-6">

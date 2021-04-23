@@ -81,19 +81,19 @@ session_start(); //session works
 		<form action="posting.php" method="POST">
 			<div class ="row">
 				<div class="col-lg-2">
-					<button class="customDiv" onclick="location.href='posting.php'">
+					<button class="customDiv" id = "Vehicles" onclick="location.href='posting.php'" value = "Vehicles">
 						Vehicles
 						<input type = "hidden" name = "category" value = "Vehicles">
 					</button>
 				</div>
 				<div class="col-lg-2">
-					<button class="customDiv" onclick="location.href='posting.php'">
+					<button class="customDiv" id = "Vehicles" onclick="location.href='posting.php'">
 						Housing
 						<input type = "hidden" name = "category" value = "Housing">
 					</button>
 				</div>
 				<div class="col-lg-2">
-					<button class="customDiv" onclick="location.href='posting.php'">
+					<button class="customDiv" id = "Vehicles" onclick="location.href='posting.php'">
 						Books
 						<input type = "hidden" name = "category" value = "School Supplies">
 					</button>
@@ -112,7 +112,7 @@ session_start(); //session works
 				</div>
 				<div class="col-lg-2">
 					<button class="customDiv" onclick="location.href='posting.php'">
-					Misc
+						Misc
 					<input type = "hidden" name = "category" value = "Misc">
 					</button>
 				</div>
