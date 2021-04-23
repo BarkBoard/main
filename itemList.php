@@ -67,7 +67,19 @@ $category = $_POST('category');
 			
 				switch ($category){
 					case 'Vehicles':
-
+						$sql = "SELECT title, price, category FROM item ORDER BY views DESC LIMIT 10";
+						$result = $conn->query($sql);
+						
+						if($result->num_rows>0) {
+							echo "<table><tr><th>Title</th><th>Price</th><th>Category</th></tr>";
+							
+							while($row = $result->fetch_assoc()) {
+								echo "<tr><td>".$row["title"]."</td><td>".$row["price"]."</td><td>".$row["category"]."</td></tr>";
+							}
+							echo "</table";
+						} else {
+							echo "0 results";
+						}
 					case 'Housing':
 						
 					case 'Clothing':
